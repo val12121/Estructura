@@ -24,12 +24,17 @@ begin
   s = 2'b01;
   #5
 
-  //Prueba 2 (A and B)
+  //Prueba 2 (A xor B)
   A = 1'b0;
   B = 1'b1;
-  s = 2'b01;
+  s = 2'b10;
   #5
     
+  //Prueba 3 (NOT A)
+  A = 1'b0;
+  B = 1'b1;
+  s = 2'b11;
+  #5
   //Los valores que se encuentren aquí son reg
 
   $finish;  //fin simulacion

@@ -10,7 +10,11 @@ reg test_a, test_b; // las señales de entrada al semisumador. Se han declarado 
 wire test_sum, test_carry; //señales de salida, se declaran como wire porque sus
 // valores se fijan por el semisumador
 //instancia del modulo a testear, con notación de posiciones de argumentos
-ha_v1 ha1(test_sum, test_carry, test_a, test_b);
+
+
+// ha_v1 ha1(test_sum, test_carry, test_a, test_b); //Aquí hay que cambiar el nombre
+ha_v2 ha2(test_sum, test_carry, test_a, test_b);
+
 // Lo siguiente comentado es una notación alternativa para instanciar el módulo, los
 // parámetros se denotan con un punto seguido del nombre del parámetro en la definición
 // original del módulo y entre paréntesis a qué se conecta en el modulo actual
@@ -18,24 +22,24 @@ ha_v1 ha1(test_sum, test_carry, test_a, test_b);
 // ha_v1 ha1(.a(test_a), .b(test_b), .sum(test_sum), .carry(test_carry));
 initial
 begin
- // sentencia para mostrar los valores de tiempo y variables, en cuanto cualquiera de
- // éstas cambie
- $monitor("tiempo=%0d a=%b b=%b suma=%b acarreo=%b", $time, test_a, test_b, test_sum, test_carry);
- //vector de test 0
- test_a = 1'b0;
- test_b = 1'b0;
- #20;
- //vector de test 1
- test_a = 1'b0;
- test_b = 1'b1;
- #20;
- //vector de test 2
- test_a = 1'b1;
- test_b = 1'b0;
- #20;
- //vector de test 3
- test_a = 1'b1;
- test_b = 1'b1;
- $finish; //fin simulacion
+  // sentencia para mostrar los valores de tiempo y variables, en cuanto cualquiera de
+  // éstas cambie
+  $monitor("tiempo = %0d, a = %b, b = %b, suma = %b, acarreo = %b", $time, test_a, test_b, test_sum, test_carry);
+  //vector de test 0
+  test_a = 1'b0;
+  test_b = 1'b0;
+  #20;
+  //vector de test 1
+  test_a = 1'b0;
+  test_b = 1'b1;
+  #20;
+  //vector de test 2
+  test_a = 1'b1;
+  test_b = 1'b0;
+  #20;
+  //vector de test 3
+  test_a = 1'b1;
+  test_b = 1'b1;
+  $finish; //fin simulacion
 end
 endmodule 

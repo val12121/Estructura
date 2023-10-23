@@ -1,5 +1,5 @@
 //Semisumador de dos entradas de 1 bit realizado a partir de puertas, Notación vieja
-module ha_v1_1(sum, carry, a, b);
+module ha_v1(sum, carry, a, b);
 
 output wire sum, carry;
 input a, b; //tipo wire por defecto

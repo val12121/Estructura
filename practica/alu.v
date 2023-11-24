@@ -19,13 +19,13 @@ input wire [1:0] ALUOP, input wire l);
   assign op2_B = ALUOP[1] & (~ALUOP[0]) | l & ~ALUOP[1];
   assign cpl =   (~l &  ~ALUOP[1] & ALUOP[0]) | (l & ALUOP[1] & ALUOP[0]);
   */  
-  
+
   assign zero = R == 0 ? 1 : 0;
-  assign sign = R[3];
+  assign sign = R[3]; //
 
-  assign add1 = (~l & ALUOP[0]);
-  assign op1_A = (ALUOP[1] & ~ALUOP[0]) | (l);
-  assign op2_B = (ALUOP[1] & ~ALUOP[0]) | (l & ~ALUOP[1]);
-  assign cpl = (~l & ~ALUOP[1] & ALUOP[0]);
+  assign add1 = (~l & ALUOP[0]); //not A and c 
+  assign op1_A = (ALUOP[1] & ~ALUOP[0]) | (l); // B and not C
+  assign op2_B = (ALUOP[1] & ~ALUOP[0]) | (l & ~ALUOP[1]); // B and not C or A and not B
+  assign cpl = (~l & ~ALUOP[1] & ALUOP[0]);  // not A and not B and C
 
-endmodule
+endmodule 
